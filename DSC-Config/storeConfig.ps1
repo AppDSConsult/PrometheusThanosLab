@@ -2,7 +2,7 @@ Configuration storeConfig
 {
     Import-DscResource -Module nx
 
-    Node  "10.0.7.6"  #Add Thanos Store server name or IP
+    Node  "10.0.8.4"  #Add Thanos Store server name or IP
     
     {
         nxFile bucketDir

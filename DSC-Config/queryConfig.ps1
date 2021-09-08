@@ -2,7 +2,7 @@ Configuration queryConfig
 {
     Import-DscResource -Module nx
 
-    Node  "10.0.7.6"  #Add Thanos Query server name or IP
+    Node  "10.0.8.4"  #Add Thanos Query server name or IP
     
     {
         nxFile tempThanosDir
@@ -69,8 +69,8 @@ Type=simple
 ExecStart=/bin/thanos query \
      --http-address=0.0.0.0:29090 \
      --grpc-address=0.0.0.0:10903 \
-     --store=10.0.7.7:10901 \
-     --store=10.0.7.5:10901 \
+     --store=10.0.8.4:10901 \
+     --store=10.0.8.5:10901 \
      --store=localhost:10905 \
      --query.replica-label replica
 [Install]
