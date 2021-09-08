@@ -1,21 +1,21 @@
 variable "subscription_id" {
   description = "Azure authentication details"
-  default     = "6f5b33c3-a842-493c-9b4d-994dcc3129a8"
+  default     = ""  #Add subscription_id
 }
 
 variable "client_id" {
   description = "Azure authentication details"
-  default     = "beec1137-c853-476d-8e81-3d1945d57873"
+  default     = ""  #Add client_id
 }
 
 variable "client_secret" {
   description = "Azure authentication details"
-  default     = "FC3zocZeXQO.cA_8_HB202y3z7sU-d7S89"
+  default     = ""  #Add client_secret
 }
 
 variable "tenant_id" {
   description = "Azure authentication details"
-  default     = "edbf728a-8736-49f7-8ced-c1111db6ceb9"
+  default     = ""  #Add tenant_id
 }
 
 variable "vm_count" {
@@ -25,26 +25,26 @@ variable "vm_count" {
 
 variable "vm_prefix" {
   description = "Prefix of the name of the VM(s)"
-  default =  "ubuntu"
+  default =  ""  #Add VM prefix
 }
 
 variable "admin_username" {
   description = "Name of the admin account"
-  default     = "adminas"
+  default     = ""  #Add admin name
 }
 
 variable "admin_password" {
-  default     = "Laru19999991"
+  default     = ""  #Add admin password
 }
 
 variable "region" {
   description = "Region in which to deploy these resources"
-  default = "germanywestcentral"
+  default = "uksouth"   #Add build region
 }
 
 variable "resource_group_name" {
   description = "Name of the Resource Group in which to deploy these resources"
-  default =  "VFF-WUS-RG-TFWVD"
+  default =  ""  #Add build resource group
 }
 
 variable "vm_size" {
@@ -64,15 +64,15 @@ variable "managed_disk_type" {
 
 variable "existing_subnet_name" {
   description = "Name of the existing subnet to import/associate"
-  default =  "default"  #Add existing subnet name
+  default =  ""  #Add existing subnet name
 }
 
 variable "existing_vnet_name" {
   description = "Name of the existing virtual network to import/associate"
-  default =  "ThanosGWC-vnet"  #Add existing vnet name
+  default =  ""  #Add existing vnet name
 }
 
 variable "existing_vnet_rg_name" {
   description = "Resource Group ame of the existing virtual network"
-  default =  "ThanosGWC"  #Add Resource Group of the existing virtual network
+  default =  ""  #Add Resource Group of the existing virtual network
 }
