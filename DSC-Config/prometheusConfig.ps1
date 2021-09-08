@@ -97,8 +97,8 @@ sudo cp -rp /tmp/prometheus/prometheus-2.29.2.linux-amd64/prometheus /usr/local/
             Contents        = "global:
   scrape_interval: 15s
   external_labels:
-   cluster: uks-1
-   replica: ubuntu-1
+   cluster: lab-1
+   replica: ubuntulab-1
 scrape_configs:
   - job_name: 'windows_exporter'
     static_configs:
