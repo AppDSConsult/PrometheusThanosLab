@@ -2,7 +2,7 @@ Configuration prometheusConfig
 {
     Import-DscResource -Module nx
 
-    Node  "10.0.7.5"  #Add Prometheus node name or IP
+    Node  "10.0.8.4"  #Add Prometheus node name or IP
     {
         nxFile prometheusDataDir
         {
@@ -28,15 +28,15 @@ Configuration prometheusConfig
         nxFile prometheusDownload
         {
             Ensure          = "Present"
-            SourcePath      = "https://github.com/prometheus/prometheus/releases/download/v2.28.1/prometheus-2.28.1.linux-amd64.tar.gz"
-            DestinationPath = "/tmp/prometheus/prometheus-2.28.1.linux-amd64.tar.gz"
+            SourcePath      = "https://github.com/prometheus/prometheus/releases/download/v2.29.2/prometheus-2.29.2.linux-amd64.tar.gz"
+            DestinationPath = "/tmp/prometheus/prometheus-2.29.2.linux-amd64.tar.gz"
             Type            = "File"
             Checksum        = "mtime"
         }
 
         nxArchive prometheusArchive
         {
-            SourcePath      = "/tmp/prometheus/prometheus-2.28.1.linux-amd64.tar.gz"
+            SourcePath      = "/tmp/prometheus/prometheus-2.29.2.linux-amd64.tar.gz"
             DestinationPath = "/tmp/prometheus/"
             Force           = $false
             DependsOn       = "[nxFile]prometheusDownload"
@@ -63,7 +63,7 @@ fi
 
             SetScript  = @"
 #!/bin/bash
-sudo cp -rp /tmp/prometheus/prometheus-2.28.1.linux-amd64/promtool /usr/local/bin
+sudo cp -rp /tmp/prometheus/prometheus-2.29.2.linux-amd64/promtool /usr/local/bin
 "@
         }
 
@@ -87,7 +87,7 @@ fi
 
             SetScript  = @"
 #!/bin/bash
-sudo cp -rp /tmp/prometheus/prometheus-2.28.1.linux-amd64/prometheus /usr/local/bin
+sudo cp -rp /tmp/prometheus/prometheus-2.29.2.linux-amd64/prometheus /usr/local/bin
 "@
         }
         
@@ -98,7 +98,7 @@ sudo cp -rp /tmp/prometheus/prometheus-2.28.1.linux-amd64/prometheus /usr/local/
   scrape_interval: 15s
   external_labels:
    cluster: uks-1
-   replica: suse15-1
+   replica: ubuntu-1
 scrape_configs:
   - job_name: 'windows_exporter'
     static_configs:
@@ -128,7 +128,7 @@ fi
 
             SetScript  = @"
 #!/bin/bash
-sudo cp -r /tmp/prometheus/prometheus-2.28.1.linux-amd64/console_libraries /etc/prometheus
+sudo cp -r /tmp/prometheus/prometheus-2.29.2.linux-amd64/console_libraries /etc/prometheus
 "@
         }
         nxScript consolesCopy {
@@ -151,14 +151,14 @@ fi
 
             SetScript  = @"
 #!/bin/bash
-sudo cp -r /tmp/prometheus/prometheus-2.28.1.linux-amd64/consoles /etc/prometheus
+sudo cp -r /tmp/prometheus/prometheus-2.29.2.linux-amd64/consoles /etc/prometheus
 "@
         }
 
         nxFile prometheusServiceFile
         {
             DestinationPath = "/etc/systemd/system/prometheus.service"
-            SourcePath      =  "https://raw.githubusercontent.com/AppDSConsult/prometheusThanos/master/DSC-Config/Service-Files/prometheus.service"    
+            SourcePath      =  "https://raw.githubusercontent.com/AppDSConsult/PrometheusThanosLab/master/DSC-Config/Service-Files/prometheus.service"    
             Ensure          = "Present"
             Type            = "file"
         }

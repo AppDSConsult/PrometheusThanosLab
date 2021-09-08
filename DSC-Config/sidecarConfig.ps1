@@ -2,7 +2,7 @@ Configuration sidecarConfig
 {
     Import-DscResource -Module nx
 
-    Node  "10.0.7.5"  #Add Thanos Sidecar server name or IP
+    Node  "10.0.8.4"  #Add Thanos Sidecar server name or IP
     
     {
         nxFile tempThanosDir
@@ -75,7 +75,7 @@ config:
         nxFile sidecarServiceFile
         {
             DestinationPath = "/etc/systemd/system/sidecar.service"
-            SourcePath      =  "https://raw.githubusercontent.com/AppDSConsult/prometheusThanos/master/DSC-Config/Service-Files/sidecar.service"     
+            SourcePath      =  "https://raw.githubusercontent.com/AppDSConsult/PrometheusThanosLab/master/DSC-Config/Service-Files/sidecar.service"     
             Ensure          = "Present"
             Type            = "file"
             DependsOn       = "[nxFile]bucketyml"

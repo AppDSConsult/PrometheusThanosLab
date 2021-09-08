@@ -47,7 +47,7 @@ resource "azurerm_network_interface" "ubuntulab-nwi" {
   resource_group_name = var.resource_group_name
 
   ip_configuration {
-    name                          = "${var.vm_prefix}-${count.index + 1}-nic-01"
+    name = "${var.vm_prefix}-${count.index + 1}-nic-01"
     #subnet_id                    = data.azurerm_subnet.dsubnet.id
     subnet_id                     = azurerm_subnet.ubuntulab-subnet.id
     private_ip_address_allocation = "dynamic"
