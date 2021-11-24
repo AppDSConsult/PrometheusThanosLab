@@ -50,7 +50,7 @@ fi
 
             SetScript  = @"
 #!/bin/bash
-sudo cp -rp /tmp/thanos/thanos-0.22.0.linux-amd64/thanos /bin
+sudo cp -rp /tmp/thanos/thanos-0.23.1.linux-amd64/thanos /bin
 "@
         }
 
