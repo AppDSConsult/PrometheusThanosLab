@@ -15,15 +15,15 @@ Configuration sidecarConfig
         nxFile downloadThanos
         {
             Ensure          = "Present"
-            SourcePath      = "https://github.com/thanos-io/thanos/releases/download/v0.22.0/thanos-0.22.0.linux-amd64.tar.gz"
-            DestinationPath = "/tmp/thanos/thanos-0.22.0.linux-amd64.tar.gz"
+            SourcePath      = "https://github.com/thanos-io/thanos/releases/download/v0.23.1/thanos-0.23.1.linux-amd64.tar.gz"
+            DestinationPath = "/tmp/thanos/thanos-0.23.1.linux-amd64.tar.gz"
             Type            = "File"
             Checksum        = "mtime"        
         }
 
         nxArchive thanosarchive
         {
-            SourcePath      = "/tmp/thanos/thanos-0.22.0.linux-amd64.tar.gz"
+            SourcePath      = "/tmp/thanos/thanos-0.23.1.linux-amd64.tar.gz"
             DestinationPath = "/tmp/thanos/"
             Force           = $false
             DependsOn       = "[nxFile]downloadThanos"
@@ -50,7 +50,7 @@ fi
 
             SetScript  = @"
 #!/bin/bash
-sudo cp -rp /tmp/thanos/thanos-0.22.0.linux-amd64/thanos /bin
+sudo cp -rp /tmp/thanos/thanos-0.23.1.linux-amd64/thanos /bin
 "@
         }
 
