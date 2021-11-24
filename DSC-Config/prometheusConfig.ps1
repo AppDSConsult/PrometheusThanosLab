@@ -28,15 +28,15 @@ Configuration prometheusConfig
         nxFile prometheusDownload
         {
             Ensure          = "Present"
-            SourcePath      = "https://github.com/prometheus/prometheus/releases/download/v2.29.2/prometheus-2.29.2.linux-amd64.tar.gz"
-            DestinationPath = "/tmp/prometheus/prometheus-2.29.2.linux-amd64.tar.gz"
+            SourcePath      = "https://github.com/prometheus/prometheus/releases/download/v2.31.1/prometheus-2.31.1.linux-amd64.tar.gz"
+            DestinationPath = "/tmp/prometheus/prometheus-2.31.1.linux-amd64.tar.gz"
             Type            = "File"
             Checksum        = "mtime"
         }
 
         nxArchive prometheusArchive
         {
-            SourcePath      = "/tmp/prometheus/prometheus-2.29.2.linux-amd64.tar.gz"
+            SourcePath      = "/tmp/prometheus/prometheus-2.31.1.linux-amd64.tar.gz"
             DestinationPath = "/tmp/prometheus/"
             Force           = $false
             DependsOn       = "[nxFile]prometheusDownload"
@@ -63,7 +63,7 @@ fi
 
             SetScript  = @"
 #!/bin/bash
-sudo cp -rp /tmp/prometheus/prometheus-2.29.2.linux-amd64/promtool /usr/local/bin
+sudo cp -rp /tmp/prometheus/prometheus-2.31.1.linux-amd64/promtool /usr/local/bin
 "@
         }
 
@@ -87,7 +87,7 @@ fi
 
             SetScript  = @"
 #!/bin/bash
-sudo cp -rp /tmp/prometheus/prometheus-2.29.2.linux-amd64/prometheus /usr/local/bin
+sudo cp -rp /tmp/prometheus/prometheus-2.31.1.linux-amd64/prometheus /usr/local/bin
 "@
         }
         
@@ -128,7 +128,7 @@ fi
 
             SetScript  = @"
 #!/bin/bash
-sudo cp -r /tmp/prometheus/prometheus-2.29.2.linux-amd64/console_libraries /etc/prometheus
+sudo cp -r /tmp/prometheus/prometheus-2.31.1.linux-amd64/console_libraries /etc/prometheus
 "@
         }
         nxScript consolesCopy {
@@ -151,7 +151,7 @@ fi
 
             SetScript  = @"
 #!/bin/bash
-sudo cp -r /tmp/prometheus/prometheus-2.29.2.linux-amd64/consoles /etc/prometheus
+sudo cp -r /tmp/prometheus/prometheus-2.31.1.linux-amd64/consoles /etc/prometheus
 "@
         }
 
